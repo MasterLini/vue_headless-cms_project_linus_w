@@ -1,5 +1,7 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Space+Grotesk:wght@400;500;600&display=swap');
+
 :root {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Space Grotesk', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color: #f4f1e8;
@@ -21,6 +23,7 @@ body {
 
 img {
   display: block;
+  width: 100%;
 }
 
 #app {

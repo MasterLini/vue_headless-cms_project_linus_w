@@ -1,5 +1,6 @@
-<template>
+﻿<template>
   <div class="persons-view">
+    <HeaderCard title="HTL Dornbirn 5bWI" />
     
     <div v-if="error" class="error">
       <p>{{ error }}</p>
@@ -18,11 +19,13 @@
 
 <script>
 import PersonCard from '../components/PersonCard.vue'
+import HeaderCard from '../components/HeaderCard.vue'
 
 export default {
   name: 'PersonsView',
   components: {
-    PersonCard
+    PersonCard,
+    HeaderCard
   },
   data() {
     return {
@@ -64,76 +67,62 @@ export default {
 <style scoped>
 .persons-view {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 20px;
+  background-color: #3b3a13;
+  padding: clamp(48px, 8vw, 96px) clamp(24px, 8vw, 120px) 120px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(36px, 6vw, 72px);
 }
-
-.header {
-  text-align: center;
-  margin-bottom: 40px;
-  color: white;
-}
-
-.header h1 {
-  font-size: 2.5rem;
-  margin: 0 0 10px 0;
-  font-weight: 700;
-}
-
-.header p {
-  font-size: 1.1rem;
-  margin: 0;
-  opacity: 0.9;
-}
-
 
 .error {
+  align-self: center;
   text-align: center;
-  color: white;
-  min-height: 300px;
+  color: #f5f1dd;
+  min-height: 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 24px;
 }
 
 .retry-btn {
-  background: white;
-  color: #667eea;
+  background-color: #f5f1dd;
+  color: #3b3a13;
   border: none;
-  padding: 12px 24px;
-  border-radius: 25px;
+  padding: 14px 32px;
+  border-radius: 40px;
   font-weight: 600;
+  letter-spacing: 0.05em;
   cursor: pointer;
-  margin-top: 20px;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
 }
 
 .retry-btn:hover {
-  background: #f8f9fa;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.3);
 }
 
 .persons-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1280px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(32px, 5vw, 60px);
+  justify-items: center;
 }
 
 @media (max-width: 768px) {
-  .persons-grid {
-    gap: 15px;
-  }
-  
-  .header h1 {
-    font-size: 2rem;
-  }
-  
   .persons-view {
-    padding: 15px;
+    padding: 48px 24px 96px;
+    gap: 48px;
+  }
+
+  .persons-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 32px;
   }
 }
 </style>
