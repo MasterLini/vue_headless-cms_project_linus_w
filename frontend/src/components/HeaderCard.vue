@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <header class="page-header">
     <h1>{{ title }}</h1>
   </header>
@@ -17,15 +17,17 @@ const props = defineProps({
 .page-header {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 2.5rem;
+  padding-top: 12px;
 }
 
 h1 {
-  font-size: clamp(2.25rem, 6vw, 4rem);
-  font-weight: 700;
+  margin: 0;
+  font-family: 'Bungee', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 400;
   letter-spacing: 0.08em;
-  color: #f4f1e8;
+  color: #f5f1dd;
   text-transform: uppercase;
-  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 8px 18px rgba(0, 0, 0, 0.55);
 }
 </style>

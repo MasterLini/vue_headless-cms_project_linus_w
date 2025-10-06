@@ -29,52 +29,74 @@ export default {
 
 <style scoped>
 .person-card {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: clamp(220px, 19vw, 260px);
+  background-color: #2a2820;
+  border-radius: 22px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 250px;
-  margin: 10px;
+  box-shadow: 0 22px 38px rgba(0, 0, 0, 0.45);
+  transform: translateZ(0);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .person-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 28px 48px rgba(0, 0, 0, 0.55);
 }
 
 .card-image {
-  width: 100%;
-  height: 200px;
+  position: relative;
+  aspect-ratio: 3 / 4;
+  background: #1a1914;
   overflow: hidden;
+}
+
+.card-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 20%, rgba(0, 0, 0, 0.4) 100%);
+  mix-blend-mode: multiply;
 }
 
 .card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  filter: saturate(1.05) contrast(1.01);
+  transition: transform 0.35s ease;
 }
 
 .person-card:hover .card-image img {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .card-content {
-  padding: 16px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 22px 30px;
+  background-color: #dcd7cf;
+  color: #1e1c16;
 }
 
 .person-name {
-  margin: 0 0 8px 0;
-  font-size: 18px;
+  margin: 0;
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  font-size: 1rem;
   font-weight: 600;
-  color: #333;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
 }
 
-.person-phone {
+.person-detail {
   margin: 0;
-  font-size: 14px;
-  color: #666;
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #3f372f;
+  white-space: pre-line;
 }
 </style>
