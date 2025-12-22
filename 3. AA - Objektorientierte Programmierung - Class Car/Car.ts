@@ -1,17 +1,20 @@
 import { engine } from "./Engine.ts"
+import { owner } from "./Owner.ts"
 
 export class car {
  private brand: string; 
  private color: string;
  private kmstand: number;
  private engine: engine;
+ private owner: owner;
 
 
- constructor(brand: string, color: string, kmstand: number, engine: engine) {
+ constructor(brand: string, color: string, kmstand: number, engine: engine, owner: owner) {
     this.brand = brand; 
     this.color = color; 
     this.kmstand = this.checkKMStand(kmstand)
     this.engine = engine;
+    this.owner = owner;
  }
 
 
@@ -49,6 +52,10 @@ public reduceKM(km: number):void {
 
 public getEngine() {
     return this.engine
+}
+
+public getOwner() {
+    return this.owner
 }
 
 public getKM() {
